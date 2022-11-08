@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tradr-staging-203817-authRole",
+      "UnauthRoleArn": "arn:aws:iam::714280808965:role/amplify-tradr-staging-203817-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::714280808965:role/amplify-tradr-staging-203817-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-tradr-staging-203817-deployment",
+      "UnauthRoleName": "amplify-tradr-staging-203817-unauthRole",
+      "StackName": "amplify-tradr-staging-203817",
+      "StackId": "arn:aws:cloudformation:eu-west-2:714280808965:stack/amplify-tradr-staging-203817/1c59b2d0-5edc-11ed-bd35-06421d4a082e",
+      "AmplifyAppId": "d1iqs70whgm1vg"
+    },
+    "categories": {
+      "auth": {
+        "tradr": {}
+      }
+    }
+  }
+}
