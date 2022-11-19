@@ -33,5 +33,5 @@ export { default as EditProfile } from "./EditProfile";
 export { default as Ampligram } from "./Ampligram";
 export { default as MyIcon } from "./MyIcon";
 export { default as studioTheme } from "./studioTheme";
-export { default as CreateSettings } from "./CreateSettings";
+export { default as SetCredentials } from "./SetCredentials";
 export { default as UpdateCredentials } from "./UpdateCredentials";

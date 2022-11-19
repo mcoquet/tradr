@@ -1,4 +1,22 @@
-type Settings @model @auth(rules: [{allow: public}]) {
+type Trades @model @auth(rules: [{allow: public}, {allow: owner}]) {
   id: ID!
-  credentials: AWSJSON
-} 
+  token: String
+  sls: [String]!
+  tps: [String!]!
+  createdAt: AWSTimestamp!
+  updatedAt: AWSTimestamp
+}
+
+enum Exchanges {
+  KUCOIN
+  BINANCE
+  BITGET
+}
+
+type Credentials @model @auth(rules: [{allow: public}, {allow: owner}]) {
+  id: ID!
+  apikey: String
+  apisecret: String
+  exchange: Exchanges
+}
+ 

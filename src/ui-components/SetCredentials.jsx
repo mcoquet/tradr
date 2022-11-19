@@ -17,10 +17,9 @@ import {
   TextField,
 } from "@aws-amplify/ui-react";
 import { DataStore } from "aws-amplify";
-export default function UpdateCredentials(props) {
+export default function SetCredentials(props) {
   const {
-    id,
-    credentials,
+    clearOnSuccess = true,
     onSuccess,
     onError,
     onSubmit,
@@ -40,21 +39,11 @@ export default function UpdateCredentials(props) {
   const [exchange, setExchange] = React.useState(initialValues.exchange);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = { ...initialValues, ...credentialsRecord };
-    setApikey(cleanValues.apikey);
-    setApisecret(cleanValues.apisecret);
-    setExchange(cleanValues.exchange);
+    setApikey(initialValues.apikey);
+    setApisecret(initialValues.apisecret);
+    setExchange(initialValues.exchange);
     setErrors({});
   };
-  const [credentialsRecord, setCredentialsRecord] = React.useState(credentials);
-  React.useEffect(() => {
-    const queryData = async () => {
-      const record = id ? await DataStore.query(Credentials, id) : credentials;
-      setCredentialsRecord(record);
-    };
-    queryData();
-  }, [id, credentials]);
-  React.useEffect(resetStateValues, [credentialsRecord]);
   const validations = {
     apikey: [],
     apisecret: [],
@@ -105,13 +94,12 @@ export default function UpdateCredentials(props) {
           modelFields = onSubmit(modelFields);
         }
         try {
-          await DataStore.save(
-            Credentials.copyOf(credentialsRecord, (updated) => {
-              Object.assign(updated, modelFields);
-            })
-          );
+          await DataStore.save(new Credentials(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
+          }
+          if (clearOnSuccess) {
+            resetStateValues();
           }
         } catch (err) {
           if (onError) {
@@ -120,13 +108,12 @@ export default function UpdateCredentials(props) {
         }
       }}
       {...rest}
-      {...getOverrideProps(overrides, "UpdateCredentials")}
+      {...getOverrideProps(overrides, "SetCredentials")}
     >
       <TextField
         label="Apikey"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={apikey}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -152,7 +139,6 @@ export default function UpdateCredentials(props) {
         label="Apisecret"
         isRequired={false}
         isReadOnly={false}
-        defaultValue={apisecret}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
@@ -221,10 +207,10 @@ export default function UpdateCredentials(props) {
         {...getOverrideProps(overrides, "CTAFlex")}
       >
         <Button
-          children="Reset"
+          children="Clear"
           type="reset"
           onClick={resetStateValues}
-          {...getOverrideProps(overrides, "ResetButton")}
+          {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex {...getOverrideProps(overrides, "RightAlignCTASubFlex")}>
           <Button

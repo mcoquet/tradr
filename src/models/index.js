@@ -2,10 +2,16 @@
 import { initSchema } from '@aws-amplify/datastore';
 import { schema } from './schema';
 
+const Exchanges = {
+  "KUCOIN": "KUCOIN",
+  "BINANCE": "BINANCE",
+  "BITGET": "BITGET"
+};
 
-
-const { Settings } = initSchema(schema);
+const { Trades, Credentials } = initSchema(schema);
 
 export {
-  Settings
+  Trades,
+  Credentials,
+  Exchanges
 };

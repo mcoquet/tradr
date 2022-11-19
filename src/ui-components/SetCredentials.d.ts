@@ -5,7 +5,6 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Credentials } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { GridProps, SelectFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 export declare type ValidationResponse = {
@@ -13,33 +12,32 @@ export declare type ValidationResponse = {
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type UpdateCredentialsInputValues = {
+export declare type SetCredentialsInputValues = {
     apikey?: string;
     apisecret?: string;
     exchange?: string;
 };
-export declare type UpdateCredentialsValidationValues = {
+export declare type SetCredentialsValidationValues = {
     apikey?: ValidationFunction<string>;
     apisecret?: ValidationFunction<string>;
     exchange?: ValidationFunction<string>;
 };
 export declare type FormProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type UpdateCredentialsOverridesProps = {
-    UpdateCredentialsGrid?: FormProps<GridProps>;
+export declare type SetCredentialsOverridesProps = {
+    SetCredentialsGrid?: FormProps<GridProps>;
     apikey?: FormProps<TextFieldProps>;
     apisecret?: FormProps<TextFieldProps>;
     exchange?: FormProps<SelectFieldProps>;
 } & EscapeHatchProps;
-export declare type UpdateCredentialsProps = React.PropsWithChildren<{
-    overrides?: UpdateCredentialsOverridesProps | undefined | null;
+export declare type SetCredentialsProps = React.PropsWithChildren<{
+    overrides?: SetCredentialsOverridesProps | undefined | null;
 } & {
-    id?: string;
-    credentials?: Credentials;
-    onSubmit?: (fields: UpdateCredentialsInputValues) => UpdateCredentialsInputValues;
-    onSuccess?: (fields: UpdateCredentialsInputValues) => void;
-    onError?: (fields: UpdateCredentialsInputValues, errorMessage: string) => void;
+    clearOnSuccess?: boolean;
+    onSubmit?: (fields: SetCredentialsInputValues) => SetCredentialsInputValues;
+    onSuccess?: (fields: SetCredentialsInputValues) => void;
+    onError?: (fields: SetCredentialsInputValues, errorMessage: string) => void;
     onCancel?: () => void;
-    onChange?: (fields: UpdateCredentialsInputValues) => UpdateCredentialsInputValues;
-    onValidate?: UpdateCredentialsValidationValues;
+    onChange?: (fields: SetCredentialsInputValues) => SetCredentialsInputValues;
+    onValidate?: SetCredentialsValidationValues;
 }>;
-export default function UpdateCredentials(props: UpdateCredentialsProps): React.ReactElement;
+export default function SetCredentials(props: SetCredentialsProps): React.ReactElement;

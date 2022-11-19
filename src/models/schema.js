@@ -1,7 +1,7 @@
 export const schema = {
     "models": {
-        "Settings": {
-            "name": "Settings",
+        "Trades": {
+            "name": "Trades",
             "fields": {
                 "id": {
                     "name": "id",
@@ -10,10 +10,111 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "credentials": {
-                    "name": "credentials",
+                "token": {
+                    "name": "token",
                     "isArray": false,
-                    "type": "AWSJSON",
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "sls": {
+                    "name": "sls",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
+                "tps": {
+                    "name": "tps",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSTimestamp",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSTimestamp",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            },
+            "syncable": true,
+            "pluralName": "Trades",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
+                            {
+                                "provider": "userPools",
+                                "ownerField": "owner",
+                                "allow": "owner",
+                                "identityClaim": "cognito:username",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "Credentials": {
+            "name": "Credentials",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "apikey": {
+                    "name": "apikey",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "apisecret": {
+                    "name": "apisecret",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "exchange": {
+                    "name": "exchange",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Exchanges"
+                    },
                     "isRequired": false,
                     "attributes": []
                 },
@@ -35,7 +136,7 @@ export const schema = {
                 }
             },
             "syncable": true,
-            "pluralName": "Settings",
+            "pluralName": "Credentials",
             "attributes": [
                 {
                     "type": "model",
@@ -53,6 +154,18 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
+                            },
+                            {
+                                "provider": "userPools",
+                                "ownerField": "owner",
+                                "allow": "owner",
+                                "identityClaim": "cognito:username",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
                             }
                         ]
                     }
@@ -60,8 +173,17 @@ export const schema = {
             ]
         }
     },
-    "enums": {},
+    "enums": {
+        "Exchanges": {
+            "name": "Exchanges",
+            "values": [
+                "KUCOIN",
+                "BINANCE",
+                "BITGET"
+            ]
+        }
+    },
     "nonModels": {},
     "codegenVersion": "3.3.1",
-    "version": "187a8823efb1044583d7de2c563b5928"
+    "version": "6a5d146a9c7ee4d8c541c46d10965eb2"
 };

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "api": {
+      "tradr": [
+        "Query",
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
