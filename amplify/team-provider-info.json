@@ -18,8 +18,14 @@
       "function": {
         "messagesInput": {
           "deploymentBucketName": "amplify-tradr-staging-203817-deployment",
-          "s3Key": "amplify-builds/messagesInput-4b4339344a455476314a-build.zip"
+          "s3Key": "amplify-builds/messagesInput-527971496d6267383348-build.zip"
         }
+      },
+      "api": {
+        "tradr": {}
+      },
+      "predictions": {
+        "interpretMessage": {}
       }
     }
   }

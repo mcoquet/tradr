@@ -10,6 +10,8 @@ Amplify Params - DO NOT EDIT */
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
  
+import { default as E } from "./Exchange";
+
  const channels = ["vip-signals", "crypto-signals"];
  
 
@@ -75,7 +77,7 @@ Amplify Params - DO NOT EDIT */
  
  
  exports.handler = async (event) => {
-     
+     console.log(event.body);
      const {canal, message} = JSON.parse(event.body);
      
      let response;
