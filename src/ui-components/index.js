@@ -35,3 +35,7 @@ export { default as MyIcon } from "./MyIcon";
 export { default as studioTheme } from "./studioTheme";
 export { default as SetCredentials } from "./SetCredentials";
 export { default as UpdateCredentials } from "./UpdateCredentials";
+export { default as ChannelsCreateForm } from "./ChannelsCreateForm";
+export { default as ChannelsUpdateForm } from "./ChannelsUpdateForm";
+export { default as TradesCreateForm } from "./TradesCreateForm";
+export { default as TradesUpdateForm } from "./TradesUpdateForm";

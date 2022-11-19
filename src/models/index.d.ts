@@ -8,10 +8,34 @@ export enum Exchanges {
   BITGET = "BITGET"
 }
 
+type ChannelsMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 
 
 type CredentialsMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type EagerChannels = {
+  readonly id: string;
+  readonly name?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyChannels = {
+  readonly id: string;
+  readonly name?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Channels = LazyLoading extends LazyLoadingDisabled ? EagerChannels : LazyChannels
+
+export declare const Channels: (new (init: ModelInit<Channels, ChannelsMetaData>) => Channels) & {
+  copyOf(source: Channels, mutator: (draft: MutableModel<Channels, ChannelsMetaData>) => MutableModel<Channels, ChannelsMetaData> | void): Channels;
 }
 
 type EagerTrades = {

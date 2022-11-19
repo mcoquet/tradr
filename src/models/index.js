@@ -8,9 +8,10 @@ const Exchanges = {
   "BITGET": "BITGET"
 };
 
-const { Trades, Credentials } = initSchema(schema);
+const { Channels, Trades, Credentials } = initSchema(schema);
 
 export {
+  Channels,
   Trades,
   Credentials,
   Exchanges
