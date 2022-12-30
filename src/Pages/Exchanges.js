@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Grid, Text } from '@aws-amplify/ui-react';
+import { Card, Text } from '@aws-amplify/ui-react';
 import TwoColumnLayout from '../Layouts/TwoColumnLayout';
 
 function Exchanges() {

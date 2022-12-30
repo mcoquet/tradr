@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { DataStore } from '@aws-amplify/datastore';
 import { Trades } from '../models';
-import { Table, Grid, Card } from '@aws-amplify/ui-react';
-import SidebarNav from '../components/SidebarNav';
-import Header from '../components/Header';
+import { Table, Card } from '@aws-amplify/ui-react';
 import TwoColumnLayout from '../Layouts/TwoColumnLayout';
 
 function Dashboard() {
