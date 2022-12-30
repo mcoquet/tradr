@@ -35,7 +35,11 @@ export default function MessagesUpdateForm(props) {
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = { ...initialValues, ...messagesRecord };
-    setRawMessage(cleanValues.rawMessage);
+    setRawMessage(
+      typeof cleanValues.rawMessage === "string"
+        ? cleanValues.rawMessage
+        : JSON.stringify(cleanValues.rawMessage)
+    );
     setErrors({});
   };
   const [messagesRecord, setMessagesRecord] = React.useState(messages);
@@ -144,7 +148,10 @@ export default function MessagesUpdateForm(props) {
           onClick={resetStateValues}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
-        <Flex {...getOverrideProps(overrides, "RightAlignCTASubFlex")}>
+        <Flex
+          gap="15px"
+          {...getOverrideProps(overrides, "RightAlignCTASubFlex")}
+        >
           <Button
             children="Cancel"
             type="button"

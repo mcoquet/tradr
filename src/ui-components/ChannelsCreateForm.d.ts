@@ -33,5 +33,5 @@ export declare type ChannelsCreateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: ChannelsCreateFormInputValues) => ChannelsCreateFormInputValues;
     onValidate?: ChannelsCreateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function ChannelsCreateForm(props: ChannelsCreateFormProps): React.ReactElement;

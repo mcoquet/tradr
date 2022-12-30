@@ -35,5 +35,5 @@ export declare type MessagesUpdateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: MessagesUpdateFormInputValues) => MessagesUpdateFormInputValues;
     onValidate?: MessagesUpdateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function MessagesUpdateForm(props: MessagesUpdateFormProps): React.ReactElement;

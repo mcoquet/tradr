@@ -33,5 +33,5 @@ export declare type MessagesCreateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: MessagesCreateFormInputValues) => MessagesCreateFormInputValues;
     onValidate?: MessagesCreateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function MessagesCreateForm(props: MessagesCreateFormProps): React.ReactElement;

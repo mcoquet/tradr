@@ -45,5 +45,5 @@ export declare type TradesCreateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: TradesCreateFormInputValues) => TradesCreateFormInputValues;
     onValidate?: TradesCreateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function TradesCreateForm(props: TradesCreateFormProps): React.ReactElement;

@@ -1,6 +1,102 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createMessages = /* GraphQL */ `
+  mutation CreateMessages(
+    $input: CreateMessagesInput!
+    $condition: ModelMessagesConditionInput
+  ) {
+    createMessages(input: $input, condition: $condition) {
+      id
+      rawMessage
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateMessages = /* GraphQL */ `
+  mutation UpdateMessages(
+    $input: UpdateMessagesInput!
+    $condition: ModelMessagesConditionInput
+  ) {
+    updateMessages(input: $input, condition: $condition) {
+      id
+      rawMessage
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteMessages = /* GraphQL */ `
+  mutation DeleteMessages(
+    $input: DeleteMessagesInput!
+    $condition: ModelMessagesConditionInput
+  ) {
+    deleteMessages(input: $input, condition: $condition) {
+      id
+      rawMessage
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createChannels = /* GraphQL */ `
+  mutation CreateChannels(
+    $input: CreateChannelsInput!
+    $condition: ModelChannelsConditionInput
+  ) {
+    createChannels(input: $input, condition: $condition) {
+      id
+      name
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateChannels = /* GraphQL */ `
+  mutation UpdateChannels(
+    $input: UpdateChannelsInput!
+    $condition: ModelChannelsConditionInput
+  ) {
+    updateChannels(input: $input, condition: $condition) {
+      id
+      name
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteChannels = /* GraphQL */ `
+  mutation DeleteChannels(
+    $input: DeleteChannelsInput!
+    $condition: ModelChannelsConditionInput
+  ) {
+    deleteChannels(input: $input, condition: $condition) {
+      id
+      name
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const createTrades = /* GraphQL */ `
   mutation CreateTrades(
     $input: CreateTradesInput!

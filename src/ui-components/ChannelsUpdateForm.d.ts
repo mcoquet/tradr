@@ -35,5 +35,5 @@ export declare type ChannelsUpdateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: ChannelsUpdateFormInputValues) => ChannelsUpdateFormInputValues;
     onValidate?: ChannelsUpdateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function ChannelsUpdateForm(props: ChannelsUpdateFormProps): React.ReactElement;

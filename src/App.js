@@ -1,20 +1,26 @@
-import { Amplify } from 'aws-amplify';
-
-import { Authenticator } from '@aws-amplify/ui-react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
 import '@aws-amplify/ui-react/styles.css';
-
+import Dashboard from './Pages/Dashboard';
+import Exchanges from './Pages/Exchanges';
+import "./App.css";
 import awsExports from './aws-exports';
+import { Authenticator } from '@aws-amplify/ui-react';
+import { Amplify } from 'aws-amplify';
 Amplify.configure(awsExports);
 
-export default function App() {
+function App() {
   return (
     <Authenticator>
-      {({ signOut, user }) => (
-        <main>
-          <h1>Hello {user.username}</h1>
-          <button onClick={signOut}>Sign out</button>
-        </main>
-      )}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/exchanges" element={<Exchanges />} />
+        </Routes>
+      </Router>
     </Authenticator>
   );
 }
+
+export default App;

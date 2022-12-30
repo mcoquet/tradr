@@ -47,5 +47,5 @@ export declare type TradesUpdateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: TradesUpdateFormInputValues) => TradesUpdateFormInputValues;
     onValidate?: TradesUpdateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function TradesUpdateForm(props: TradesUpdateFormProps): React.ReactElement;

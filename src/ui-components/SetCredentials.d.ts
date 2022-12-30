@@ -39,5 +39,5 @@ export declare type SetCredentialsProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: SetCredentialsInputValues) => SetCredentialsInputValues;
     onValidate?: SetCredentialsValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function SetCredentials(props: SetCredentialsProps): React.ReactElement;

@@ -18,7 +18,7 @@
       "function": {
         "messagesInput": {
           "deploymentBucketName": "amplify-tradr-staging-203817-deployment",
-          "s3Key": "amplify-builds/messagesInput-527971496d6267383348-build.zip"
+          "s3Key": "amplify-builds/messagesInput-7243493844764f653868-build.zip"
         }
       },
       "api": {

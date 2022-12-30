@@ -41,5 +41,5 @@ export declare type UpdateCredentialsProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: UpdateCredentialsInputValues) => UpdateCredentialsInputValues;
     onValidate?: UpdateCredentialsValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function UpdateCredentials(props: UpdateCredentialsProps): React.ReactElement;
