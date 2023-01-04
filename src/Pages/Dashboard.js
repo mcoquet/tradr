@@ -1,52 +1,18 @@
-import React, { useEffect } from 'react';
-import { DataStore } from '@aws-amplify/datastore';
-import { Trades } from '../models';
-import { Table, Card } from '@aws-amplify/ui-react';
+import React from 'react';
+import { Card, Heading } from '@aws-amplify/ui-react';
 import TwoColumnLayout from '../Layouts/TwoColumnLayout';
+import { ActiveTrades } from './Trades';
+import { ActiveChannels } from './Channels';
 
 function Dashboard() {
-  const [trades, setTrades] = React.useState([]);
-  const [empty, setEmpty] = React.useState(true);
-
-  useEffect(() => {
-    async function loadTrades() {
-      // Retrieve the active trades from the database
-      const activeTrades = await DataStore.query(Trades);
-      setTrades(activeTrades);
-      if (activeTrades.length > 0) {
-        setEmpty(false);
-      }
-    }
-    loadTrades();
-  }, []);
-
   return (
-    <TwoColumnLayout> 
-      { !empty && <Card variation='outlined'> <Table className="trade-table">
-          <thead>
-            <tr>
-              <th>Asset</th>
-              <th>Quantity</th>
-              <th>Entry Price</th>
-              <th>Stop Loss</th>
-              <th>Source</th>
-            </tr>
-          </thead>
-          <tbody>
-            {trades.map(trade => (
-              <tr key={trade.id}>
-                <td>{trade.asset}</td>
-                <td>{trade.quantity}</td>
-                <td>{trade.entryPrice}</td>
-                <td>{trade.stopLoss}</td>
-                <td>{trade.source}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table> </Card>}
-        { empty && <Card> <p>No active trades</p> </Card>}
-      
-
+    <TwoColumnLayout>
+      <Card variation='outlined'>
+        <Heading level={6}>Active Trades</Heading>
+        <ActiveTrades />
+        <Heading level={6}>Active Signal Sources</Heading>
+        <ActiveChannels />
+      </Card>
     </TwoColumnLayout>
   );
 }

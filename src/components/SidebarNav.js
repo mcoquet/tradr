@@ -22,9 +22,6 @@ function SidebarNav() {
           <li>
             <Link to="/channels" className={location.pathname === '/channels' ? 'active' : ''}>Channels and Messages</Link>
           </li>
-          <li>
-            <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>Settings</Link>
-          </li>
         </ul>
       </div>
     </Card>
